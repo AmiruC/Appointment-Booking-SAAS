@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar</title>
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+ 
+    <script>
+      // define the callAPI function that takes a first name and last name as parameters
+      var callAPI = (firstName,lastName,uEmails,uPhones)=>{
+          // instantiate a headers object
+          var myHeaders = new Headers();
+          // add content type header to object
+          myHeaders.append("Content-Type", "application/json");
+          // using built in JSON utility package turn object to string and store in a variable
+          var raw = JSON.stringify({"firstName":firstName,"lastName":lastName,"email":uEmails,"phone":uPhones});
+          // create a JSON object with parameters for API call and store in a variable
+          var requestOptions = {
+              method: 'POST',
+              headers: myHeaders,
+              body: raw,
+              redirect: 'follow'
+          };
+          // make API call with parameters and use promises to get response
+          fetch("https://n518tzu6kh.execute-api.ap-southeast-2.amazonaws.com/dev/", requestOptions)
+          //.then(response => response.text())
+          //.then(result => alert(JSON.parse(result).message))
+          .catch(error => console.log('error', error));
+        }
+
+     
+
+
+    </script>
+</head>
+<body>
+    <div class="topNav">
+        <a href="#">APPOINTMENTS AUSTRALIA</a>
+    </div>
+        
+
+    <div class="formDiv">
+        
+        <h1 id = "titleBA"><u>BOOK ME IN</u> </h1>
+        <!-- <form  class = "formInputs">
+            <label>First Name :</label>
+            <input type="text" id="fName">
+            <label>Last Name :</label>
+            <input type="text" id="lName">
+            <label>Email :</label>
+            <input type="text" id="uEmail">
+            <label>Phone :</label>
+            <input type="text" id="uPhone"> 
+            
+           <!--  set button onClick method to call function we defined passing input values as parameters -->
+             <!-- <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value,document.getElementById('uEmail').value,document.getElementById('uPhone').value)">Confirm </button>  -->
+        <!-- </form>  --> 
+
+        <!-- Calander -->
+        <div class="container">
+           
+          <button id="printButton" onclick="getAvailability()">Get Data</button>
+        
+
+          <select id="selectDate">
+            <option value ="chosen" >Choose a Date</option>
+          </select>
+
+          <input type = "button" onclick = "displayChoosenDate()" value = "Get Times">
+
+          <pre id="printHere"><pre>
+
+        </div>
+      
+          <script src="script.js"></script>
+       
+    </div> 
+
+    <div class="bottomNav">
+        
+    </div>
+</body>
+</html>
