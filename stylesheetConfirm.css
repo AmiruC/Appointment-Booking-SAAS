@@ -1,0 +1,392 @@
+
+
+
+  .topNav {
+    overflow: hidden;
+    background-color: white;
+    border-bottom:black solid 2px;
+    }
+    
+.topNav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 2% 10%;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+footer {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  margin-right:15px;
+}
+
+footer nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer nav ul li {
+  margin: 0 10px;
+}
+
+footer nav a {
+  color: #333;
+  text-decoration: none;
+}
+
+footer p {
+  color: #333;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+footer p a {
+  color: #666;
+  text-decoration: none;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.bookingDiv {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#confirmContainer {
+  margin-left:50px;
+}
+
+form {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 8%;
+}
+  
+label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  @media (max-width: 600px) {
+    form {
+      width: 90%;
+    }
+  
+    label {
+      font-size: 14px;
+    }
+  
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      font-size: 14px;
+    }
+  }
+
+  /* #myButton {
+    display: block;
+    margin: auto;
+    background-color: red; /* Green */
+    /* border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 16px;
+ */
+
+  /* }  */
+  
+
+  #companyName{
+    color:rgb(0, 98, 255);
+    margin-top:-5px;
+  }
+
+   /* Form container */
+   .form-container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+}
+
+/* Form group */
+.form-group {
+
+    width:90%;
+}
+
+/* Form labels */
+.form-group label {
+    color: grey;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#firstName{
+  width:90%;
+
+}
+
+#lastName{
+  width:90%;
+}
+
+
+
+#topForm .form-group-fName, #topForm .form-group {
+  float: left;
+  padding-top:20px;
+}
+
+.form-group{
+  padding-top:20px;
+}
+
+
+
+.form-group-lName{
+  float: left;
+  padding-top:20px;
+  width:45%;
+  padding-left:15px;
+  margin-left:5px;
+}
+.form-group-fName{
+  float: left;
+  padding-top:20px;
+  
+  width:45%;
+}
+
+
+@media (max-width: 768px) {
+
+#confirmContainer{
+  width:500px;
+  border:solid 2px black;
+}
+
+.date-section, .time-section{
+  flex: 1;
+  flex-shrink: 0;
+  width: 5%;
+  border:solid 2px black;
+
+}
+
+
+  #firstName{
+    width:102%;
+  }
+  
+  #lastName{
+    width:84%;
+
+  }
+
+ 
+.form-group-fName{
+  float: left;
+  padding-top:20px;
+  width:41%;
+  display: block;
+  /* border:solid 2px black; */
+}
+
+
+
+.form-group-lName {
+  float: left;
+  padding-top:20px;
+  padding-left:10px;
+  margin-left:12px;
+  /* border:solid 2px black; */
+  width:50%;
+}
+}
+
+
+
+/* Form inputs */
+.form-control {
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 14px;
+    width: 100%;
+}
+
+
+
+/* Submit button */
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 90%;
+    margin-top:20px;
+}
+
+/* Submit button on hover */
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+.required {
+  color: red;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.required {
+  color: red;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+/* Form checkboxes */
+.form-group input[type="checkbox"] {
+  display: none;
+}
+
+.form-group input[type="checkbox"] + label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.form-group input[type="checkbox"] + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #fff;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.form-group input[type="checkbox"]:checked + label:before {
+  background: #4CAF50;
+  border-color: #4CAF50;
+}
+
+/* Add tick mark when checkbox is checked */
+.form-group input[type="checkbox"]:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.form-group input[type="checkbox"]:focus + label:before {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+}
+
+#confirmContainer {
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-left:40px;
+
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  color: rgb(104, 104, 104);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.date-section,
+.time-section {
+  margin-bottom: 20px;
+  margin-left:25px;
+  display: inline-block;
+  float:left;
+}
+
+.date-section{
+
+width:40%;
+}
+
+
+.time-section{
+
+  width:40%;
+  }
+
+.date-picked,
+.time-picked {
+  color: #444;
+  font-size: 18px;
+}

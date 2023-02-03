@@ -1,0 +1,68 @@
+	/* Add some style to the webpage */
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+
+  .topNav {
+    overflow: hidden;
+    background-color: white;
+    border-bottom:black solid 2px;
+    }
+    
+.topNav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 2% 10%;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+		header {
+			background-color: #333;
+			color: #fff;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 20px;
+		}
+
+		header h1 {
+			margin: 0;
+			font-size: 24px;
+		}
+
+		nav ul {
+			display: flex;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		nav li {
+			margin: 0 10px;
+		}
+
+		nav a {
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		.bookingsRectangle {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 200px;
+			width: 80%;
+			margin: 20px auto;
+			border: 2px solid black;
+		}

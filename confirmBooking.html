@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookings Australia</title>
+  <link rel="stylesheet" href="stylesheetConfirm.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+
+</head>
+
+<body>
+  <div class="topNav">
+    <a href="index.html">BOOKINGS AUSTRALIA</a>
+  </div>
+
+
+
+  <div class="bookingDiv">
+    <!--Main form div-->
+
+
+   
+  
+
+
+    <div id="confirmContainer">
+
+      <div class="subtitle">Reservation details</div>
+
+      <div class="date-section">
+        <div class="section-title">Date</div>
+        <div class="date-picked"></div>
+      </div>
+
+
+      <div class="time-section">
+        <div class="section-title">Time</div>
+        <div class="time-picked"></div>
+      </div>
+
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <form id ="topForm">
+      <div class="form-group-fName">
+        <label for="firstName" style="color:grey;">First name<span class="required">*</span></label>
+        <input type="text" class="form-control" id="firstName" >
+      </div>
+      <div class="form-group-lName">
+        <label for="lastName" style="color:grey;">Last name<span class="required">*</span></label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </form>
+
+
+    <form id ="topForm">
+      <div class="form-group">
+        <label for="email" style="color:grey;">Email address<span class="required">*</span></label>
+        <input type="email" class="form-control" id="email" >
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber" style="color:grey;">Phone number<span class="required">*</span></label>
+        <input type="tel" class="form-control" id="phoneNumber" >
+      </div>
+      <div class="form-group">
+        <label for="comment" style="color:grey;">Optional Comment</label>
+        <textarea class="form-control" id="comment" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="terms" name="terms" value="agree" required>
+        <label for="terms">I agree to the special terms and conditions of Berwick Sport Centre (e.g. cancellation terms, data privacy & security statement, personal information collection statement)</label>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="newsletter" name="newsletter" value="subscribed">
+        <label for="newsletter">I want to subscribe to Berwick Sport Centre's newsletter</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Confirm Booking</button>
+    </form>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div id = "formContainer">
+      <form>
+        <label for="first-name">First Name:</label><br>
+        <input type="text" id="first-name" name="first-name"  placeholder="Mark">
+
+        <label for="last-name">Last Name:</label><br>
+        <input type="text" id="last-name" name="last-name"  placeholder="Clark"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="John@gmail.com"><br>
+
+        <label for="phone">Phone:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="1234 567 890"><br><br>
+
+    
+        <button type="submit" onclick="callAPI()" id="myButton">Confirm Booking</button>
+
+       
+      </form> 
+    </div> -->
+
+
+    <script src="script.js"></script>
+
+  </div>
+
+
+
+
+
+
+
+  </div> <!-- end of Main form div -->
+
+  <footer>
+    <nav>
+      <ul>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Policies</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </nav>
+    <p>Powered by <a href="#">Bookings Australia</a></p>
+  </footer>
+
+</body>
+
+</html>

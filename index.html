@@ -1,92 +1,150 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calendar</title>
-    <link rel="stylesheet" href="stylesheet.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
- 
-    <script>
-      // define the callAPI function that takes a first name and last name as parameters
-      var callAPI = (firstName,lastName,uEmails,uPhones)=>{
-          // instantiate a headers object
-          var myHeaders = new Headers();
-          // add content type header to object
-          myHeaders.append("Content-Type", "application/json");
-          // using built in JSON utility package turn object to string and store in a variable
-          var raw = JSON.stringify({"firstName":firstName,"lastName":lastName,"email":uEmails,"phone":uPhones});
-          // create a JSON object with parameters for API call and store in a variable
-          var requestOptions = {
-              method: 'POST',
-              headers: myHeaders,
-              body: raw,
-              redirect: 'follow'
-          };
-          // make API call with parameters and use promises to get response
-          fetch("https://n518tzu6kh.execute-api.ap-southeast-2.amazonaws.com/dev/", requestOptions)
-          //.then(response => response.text())
-          //.then(result => alert(JSON.parse(result).message))
-          .catch(error => console.log('error', error));
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookings Australia</title>
+  <link rel="stylesheet" href="stylesheet.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
 
-     
+  <script>
+    // define the callAPI function that takes a first name and last name as parameters
+    var callAPI = (firstName, lastName, uEmails, uPhones) => {
+      // instantiate a headers object
+      var myHeaders = new Headers();
+      // add content type header to object
+      myHeaders.append("Content-Type", "application/json");
+      // using built in JSON utility package turn object to string and store in a variable
+      var raw = JSON.stringify({ "firstName": firstName, "lastName": lastName, "email": uEmails, "phone": uPhones });
+      // create a JSON object with parameters for API call and store in a variable
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+      // make API call with parameters and use promises to get response
+      fetch("https://n518tzu6kh.execute-api.ap-southeast-2.amazonaws.com/dev/", requestOptions)
+        //.then(response => response.text())
+        //.then(result => alert(JSON.parse(result).message))
+        .catch(error => console.log('error', error));
+    }
 
 
-    </script>
+
+
+  </script>
 </head>
+
 <body>
-    <div class="topNav">
-        <a href="#">APPOINTMENTS AUSTRALIA</a>
-    </div>
-        
+  <div class="topNav">
+    <a href="#">BOOKINGS AUSTRALIA</a>
+  </div>
 
-    <div class="formDiv">
-        
-        <h1 id = "titleBA"><u>BOOK ME IN</u> </h1>
-        <!-- <form  class = "formInputs">
-            <label>First Name :</label>
-            <input type="text" id="fName">
-            <label>Last Name :</label>
-            <input type="text" id="lName">
-            <label>Email :</label>
-            <input type="text" id="uEmail">
-            <label>Phone :</label>
-            <input type="text" id="uPhone"> 
-            
-           <!--  set button onClick method to call function we defined passing input values as parameters -->
-             <!-- <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value,document.getElementById('uEmail').value,document.getElementById('uPhone').value)">Confirm </button>  -->
-        <!-- </form>  --> 
 
-        <!-- Calander -->
-        <div class="container">
-           
-          <button id="printButton" onclick="getAvailability()">Get Data</button>
-        
 
-          <select id="selectDate">
-            <option value ="chosen" >Choose a Date</option>
-          </select>
+  <div class="bookingDiv">
+    <!--Main form div-->
 
-          <input type = "button" onclick = "displayChoosenDate()" value = "Get Times">
 
-          <pre id="printHere"><pre>
+    <div class="calendarContainer">
+      <!--Div1-->
+
+      <div class="app-container" ng-app="dateTimeApp" ng-controller="dateTimeCtrl as ctrl" ng-cloak>
+
+        <div date-picker datepicker-title="Select Date" picktime="true" pickdate="true" pickpast="false"
+          mondayfirst="false" custom-message="You selected" selecteddate="ctrl.selected_date"
+          updatefn="ctrl.updateDate(newdate)">
+
+          <div class="datepicker" ng-class="{
+                'am': timeframe == 'am',
+                'pm': timeframe == 'pm',
+                'compact': compact
+              }">
+            <div class="datepicker-header">
+              <div class="datepicker-title" ng-if="datepicker_title">{{ datepickerTitle }}</div>
+              <div class="datepicker-subheader">{{ customMessage }} {{ selectedDay }} {{
+                monthNames[localdate.getMonth()] }} {{ localdate.getDate() }}, {{ localdate.getFullYear() }}</div>
+            </div>
+
+            <div class="datepicker-calendar">
+              <div class="calendar-header">
+                <div class="goback" ng-click="moveBack()" ng-if="pickdate">
+                  <svg width="30" height="30">
+                    <path fill="none" stroke="#0DAD83" stroke-width="3" d="M19,6 l-9,9 l9,9" />
+                  </svg>
+                </div>
+                <div class="current-month-container">{{ currentViewDate.getFullYear() }} {{ currentMonthName() }}</div>
+                <div class="goforward" ng-click="moveForward()" ng-if="pickdate">
+                  <svg width="30" height="30">
+                    <path fill="none" stroke="#0DAD83" stroke-width="3" d="M11,6 l9,9 l-9,9" />
+                  </svg>
+                </div>
+              </div>
+              <div class="calendar-day-header">
+                <span ng-repeat="day in days" class="day-label">{{ day.short }}</span>
+              </div>
+              <div class="calendar-grid" ng-class="{false: 'no-hover'}[pickdate]">
+                <div ng-class="{'no-hover': !day.showday}" ng-repeat="day in month" class="datecontainer"
+                  ng-style="{'margin-left': calcOffset(day, $index)}" track by $index>
+
+                  <div class="datenumber" ng-class="{'day-selected': day.selected }" ng-click="selectDate(day)">
+                    {{ day.daydate }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="timeline">
+            </div>
+
+          </div>
 
         </div>
-      
-          <script src="script.js"></script>
-       
-    </div> 
 
-    <div class="bottomNav">
-        
+      </div>
+
     </div>
+
+    <div id="container" style="background-color:white;">
+    <!--Div2-->
+
+
+    </div>
+
+   
+    
+     
+      
+    </div>
+
+      <script src="script.js"></script>
+
+    
+
+
+
+    </div> <!-- end of Main form div -->
+
+
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </nav>
+      <p>Powered by <a href="#">Bookings Australia</a></p>
+    </footer>
+    
 </body>
+
 </html>
